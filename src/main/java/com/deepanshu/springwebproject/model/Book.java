@@ -1,6 +1,7 @@
 package com.deepanshu.springwebproject.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,16 +17,14 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
     public Book() {
     }
 
-    public Book(long id, String bookName, String isbn, Set<Author> authors) {
-        this.id = id;
+    public Book(String bookName, String isbn) {
         this.bookName = bookName;
         this.isbn = isbn;
-        this.authors = authors;
     }
 
     public long getId() {
