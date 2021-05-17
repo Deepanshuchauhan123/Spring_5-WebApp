@@ -19,12 +19,23 @@ public class Book {
     )
     private Set<Author> authors = new HashSet<>();
 
+    @ManyToOne
+    private Publisher publisher;
+
     public Book() {
     }
 
     public Book(String bookName, String isbn) {
         this.bookName = bookName;
         this.isbn = isbn;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     public long getId() {
